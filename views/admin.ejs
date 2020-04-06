@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <style>
+      .flex-container {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .flex-container > div {
+        background-color: #f1f1f1;
+        margin: 10px;
+        padding: 20px;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div>
+        <form>
+          <form method="POST" action="/admin/payment/link">
+            <label for="name">Name</label><br />
+            <input type="text" id="name" name="name" value="Ashu" /><br />
+            <label for="amount">Amount:</label><br />
+            <input
+              type="text"
+              id="amount"
+              name="amount"
+              value="$10"
+            /><br /><br />
+            <input type="submit" value="Submit" />
+          </form>
+        </form>
+      </div>
+      <div>
+        <p>Recect payments</p>
+        <% payments.forEach(i => { %>
+        <p>intent id: <%= i.id %>, status: <%= i.status %></p>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
